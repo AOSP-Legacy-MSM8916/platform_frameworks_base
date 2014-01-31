@@ -1355,7 +1355,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     private ToggleAction.State getUpdatedAirplaneToggleState() {
         return (Settings.Global.getInt(mContext.getContentResolver(),
-                Settings.Global.AIRPLANE_MODE_ON, 0) == 1) ?
+                    Settings.Global.AIRPLANE_MODE_ON, 0) == 1) ?
                 ToggleAction.State.On : ToggleAction.State.Off;
     }
 
