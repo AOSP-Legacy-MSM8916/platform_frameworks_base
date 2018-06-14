@@ -922,8 +922,8 @@ public class RecentsView extends FrameLayout {
      * @return Alpha from 0 to 1.
      */
     private float getOpaqueScrimAlpha() {
-        return MathUtils.map(0, 1, ScrimController.GRADIENT_SCRIM_ALPHA,
-                ScrimController.GRADIENT_SCRIM_ALPHA_BUSY, mBusynessFactor);
+        return MathUtils.map(0, 1, ScrimController.CUSTOM_GRADIENT_SCRIM_ALPHA,
+                ScrimController.CUSTOM_GRADIENT_SCRIM_ALPHA, mBusynessFactor);
     }
 
     /**

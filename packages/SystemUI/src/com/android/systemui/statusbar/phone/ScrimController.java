@@ -64,6 +64,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
             = new PathInterpolator(0.3f, 0f, 0.8f, 1f);
     // Default alpha value for most scrims, if unsure use this constant
     public static final float GRADIENT_SCRIM_ALPHA = 0.45f;
+    public static final float CUSTOM_GRADIENT_SCRIM_ALPHA = 0.00f;
     // A scrim varies its opacity based on a busyness factor, for example
     // how many notifications are currently visible.
     public static final float GRADIENT_SCRIM_ALPHA_BUSY = 0.70f;
