@@ -7577,16 +7577,21 @@ public class ActivityManagerService extends IActivityManager.Stub
         // next app record if we are emulating process with anonymous threads.
         ProcessRecord app;
         long startTime = SystemClock.uptimeMillis();
+Slog.w(TAG, "ADRIANDC 0 - " + pid + " MY_PID " + MY_PID + " " + thread + "); --- " + startSeq);
+
         if (pid != MY_PID && pid >= 0) {
             synchronized (mPidsSelfLocked) {
                 app = mPidsSelfLocked.get(pid);
+Slog.w(TAG, "ADRIANDC 01 - " + pid + " MY_PID " + MY_PID + " " + thread + "); " + app + " --- " + startSeq);
             }
         } else {
             app = null;
+Slog.w(TAG, "ADRIANDC 02 - " + pid + " MY_PID " + MY_PID + " " + thread + "); " + app + " --- " + startSeq);
         }
 
         // It's possible that process called attachApplication before we got a chance to
         // update the internal state.
+Slog.w(TAG, "ADRIANDC 1 - " + pid + " (IApplicationThread " + thread + "); " + app + " --- " + startSeq);
         if (app == null && startSeq > 0) {
             final ProcessRecord pending = mPendingStarts.get(startSeq);
             if (pending != null && pending.startUid == callingUid
@@ -7595,6 +7600,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                 app = pending;
             }
         }
+Slog.w(TAG, "ADRIANDC 2 - " + pid + " (IApplicationThread " + thread + "); >> " + app);
 
         if (app == null) {
             Slog.w(TAG, "No pending application record for pid " + pid
