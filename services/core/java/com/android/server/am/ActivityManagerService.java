@@ -3256,10 +3256,13 @@ public class ActivityManagerService extends IActivityManager.Stub
     @Override
     public boolean onTransact(int code, Parcel data, Parcel reply, int flags)
             throws RemoteException {
+Slog.w(TAG, "ADRIANDC onTransact " + code + " ");
         if (code == SYSPROPS_TRANSACTION) {
+Slog.w(TAG, "ADRIANDC onTransact " + code + " SYSPROPS_TRANSACTION");
             // We need to tell all apps about the system property change.
             ArrayList<IBinder> procs = new ArrayList<IBinder>();
             synchronized(this) {
+Slog.w(TAG, "ADRIANDC onTransact " + code + " mProcessNames " + mProcessNames);
                 final int NP = mProcessNames.getMap().size();
                 for (int ip=0; ip<NP; ip++) {
                     SparseArray<ProcessRecord> apps = mProcessNames.getMap().valueAt(ip);
