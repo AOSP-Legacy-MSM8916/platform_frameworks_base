@@ -39,7 +39,6 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.hardware.display.DisplayManager;
-import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.SystemProperties;
@@ -123,16 +122,6 @@ public class ScreenDecorations extends SystemUI implements Tunable {
         updateRoundedCornerRadii();
         if (hasRoundedCorners() || shouldDrawCutout()) {
             setupDecorations();
-        }
-
-        int padding = mContext.getResources().getDimensionPixelSize(
-                R.dimen.rounded_corner_content_padding);
-        int padding_alt = mContext.getResources().getDimensionPixelSize(
-                R.dimen.rounded_corner_content_padding_alt);
-        if (padding != 0 && Build.PRODUCT.equals("taimen")) {
-            setupPadding(padding);
-        } else {
-            setupPadding(padding_alt);
         }
 
         mDisplayListener = new DisplayManager.DisplayListener() {
